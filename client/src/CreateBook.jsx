@@ -3,7 +3,7 @@ import React from 'react'
 export default function CreateBook() {
 
   function addNewBook() {
-    fetch("http://localhost:5050/book", {
+    fetch("http://localhost:5050/books", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
