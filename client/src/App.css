@@ -27,14 +27,46 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 200px;
+  height: 100px;
   background-color: darkgray;
   border-radius: 5%;
   margin: 20px;
   padding: 20px;
+  cursor: pointer;
 }
 
-.book-author {
+.selected-border {
+  border: red 4px solid;
+}
+
+.default-border {
+  border: transparent 4px solid;
+}
+
+.book-data {
   color: rgb(81, 81, 81);
   font-size: 0.8rem;
   font-style: italic;
 }
+
+.books-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.books-viewer-title {
+  padding: 12px;
+  font-size: 2rem;
+}
+
+.delete-button {
+  color: white;
+  background-color: red;
+  border: 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 12px;
+}
+
