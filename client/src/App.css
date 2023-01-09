@@ -70,3 +70,36 @@
   padding: 12px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(81, 81, 81);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+input {
+  padding: 4px;
+  margin: 4px 0;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  padding: 0;
+  width: 70%;
+}
+
+form button {
+  padding: 4px;
+  margin: 4px 0;
+}
+
+form label {
+  font-size: 1rem;
+}
