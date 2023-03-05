@@ -1,6 +1,5 @@
-const express = require("express");
-const db = require('../db');
-
+import express from "express";
+import db from "../db";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -46,4 +45,4 @@ router.delete("/:id", async (req, res) => {
     res.json({success: true, data: {id: id}});
 });
 
-module.exports = router;
+export default router;

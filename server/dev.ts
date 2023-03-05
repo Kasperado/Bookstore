@@ -1,8 +1,8 @@
 // All functions in this file are for development use only
-const db = require('./db');
-const randomWords = require("random-words");
+import db from "./db";
+import randomWords from "random-words";
 
-async function createRandomBooks(number) {
+async function createRandomBooks(number: number) {
     for (let i = 0; i < number; i++) {
         let randomBookData = { 
             name: randomWords(1)[0],
@@ -16,4 +16,4 @@ async function createRandomBooks(number) {
     }
 }
 
-module.exports = { createRandomBooks }
+export default { createRandomBooks }
