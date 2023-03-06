@@ -1,15 +1,24 @@
-import { React, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Book from './Book'
 
-export default function AllBooks(props) {
-    const [books, setBooks] = useState([]);
+export interface BookData {
+    _id: string,
+    name: string,
+    author: string,
+    rating: number,
+    genres: string[],
+    isSelected: boolean
+}
+
+export default function AllBooks() {
+    const [books, setBooks] = useState<BookData[]>([]);
 
     useEffect(() => {
         async function getBooks() {
             fetch("http://localhost:5050/books")
             .then(response => response.json())
             .then((data) => {
-                data.map(book => book.isSelected = false)
+                data.map((book: BookData) => book.isSelected = false)
                 setBooks(data);
                 console.log(data);
             });    
@@ -17,15 +26,15 @@ export default function AllBooks(props) {
         getBooks();
     }, []);
 
-    function toggleSelection(id) {
-        let newBooksArray = [...books];
+    function toggleSelection(id: number) {
+        let newBooksArray: BookData[] = [...books];
         newBooksArray[id].isSelected = !newBooksArray[id].isSelected;
         setBooks(newBooksArray);
     }
 
     function deleteSelectedBooks() {
-        let newBooksArray = [];
-        let toDeleteIds = [];
+        let newBooksArray: BookData[] = [];
+        let toDeleteIds: string[] = [];
         books.forEach(book => {
             if (book.isSelected) toDeleteIds.push(book._id);
             else newBooksArray.push(book);
@@ -34,7 +43,7 @@ export default function AllBooks(props) {
         setBooks(newBooksArray);
     }
 
-    async function deleteBook(id) {
+    async function deleteBook(id: string) {
         fetch(`http://localhost:5050/books/${id}`, { method: "DELETE" })
         .then(response => response.json())
         .then((data) => console.log(data));    

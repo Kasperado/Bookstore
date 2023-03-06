@@ -1,22 +1,22 @@
-import { useState, React } from 'react'
+import React, { useState } from 'react'
 
 export default function CreateBook() {
   const defaultFormState = {
     name: "",
     author: "",
     rating: "5",
-    genres: [""]
+    genres: ""
   };
   const [formData, setFormData] = useState(defaultFormState);
 
-  function handleInput(event) {
-    const target = event.target;
+  function handleInput(event: React.FormEvent<HTMLInputElement>) {
+    const target = event.currentTarget;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     setFormData((data) => { return { ...data, [name]: value } });
   }
 
-  function addNewBook(event) {
+  function addNewBook(event: React.MouseEvent) {
     event.preventDefault();
     fetch("http://localhost:5050/books", {
       method: "POST",

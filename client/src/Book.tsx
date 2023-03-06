@@ -1,6 +1,10 @@
-import { React } from 'react'
+import { BookData } from "./AllBooks";
 
-export default function Book(props) {
+interface BookProps extends BookData {
+    handleClick: () => void
+}
+
+export default function Book(props: BookProps) {
     const maxRating = 10;
     return (
        <div className={`book ${props.isSelected ? "selected-border" : "default-border"}`} onClick={props.handleClick}>
